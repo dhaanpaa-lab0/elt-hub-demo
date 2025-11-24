@@ -3,8 +3,9 @@
 
 ### Local Setup ###
 .env
-/in/*
-/out/*
+in/*
+out/*
+logs/*
 
 ### PyCharm+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
