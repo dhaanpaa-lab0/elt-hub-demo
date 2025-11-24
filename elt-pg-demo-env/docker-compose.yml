@@ -1,0 +1,14 @@
+services:
+  pgdb:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PG_DB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASS}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    ports:
+      - "5532:5432"
+volumes:
+  postgres_data:
