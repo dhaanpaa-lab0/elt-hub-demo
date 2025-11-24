@@ -1,3 +1,4 @@
+import os
 from os import path, environ
 from urllib.parse import quote
 
@@ -39,6 +40,14 @@ class EltRunEnvironment:
 
     def fldr_inbox(self, file_name=None):
         return self._int_folder_path("in", file_name)
+
+    def get_inbox_files_abs_path(self):
+        inbox_path = path.abspath(self.fldr_inbox())
+        return [
+            path.join(inbox_path, f)
+            for f in os.listdir(inbox_path)
+            if path.isfile(path.join(inbox_path, f))
+        ]
 
     def fldr_outbox(self, file_name=None):
         return self._int_folder_path("out", file_name)
