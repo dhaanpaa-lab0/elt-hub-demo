@@ -26,6 +26,13 @@ def main():
     emit_console_event(f"In Folder ..........: {e.fldr_inbox()}")
     emit_console_event(f"Out Folder .........: {e.fldr_outbox()}")
     emit_console_event(f"Server Version .....: {check_connection_to_elt_db()}")
+    inbox_files = e.get_inbox_files_abs_path()
+    if inbox_files:
+        emit_console_event(f"Inbox Files ........: {len(inbox_files)}")
+        for f in inbox_files:
+            emit_console_event(f"Processing file: {f}")
+    else:
+        emit_console_event("No files found in inbox")
 
 
 if __name__ == "__main__":
