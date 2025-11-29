@@ -30,6 +30,10 @@ class EltRunEnvironment:
         return quote(environ.get("PG_PASS"))
 
     @property
+    def pg_url_aa(self):
+        return f"postgresql+psycopg://{self.pg_user}:{self.pg_password}@{self.pg_host}:{self.pg_port}/{self.pg_db}"
+
+    @property
     def pg_url(self):
         return f"postgresql://{self.pg_user}:{self.pg_password}@{self.pg_host}:{self.pg_port}/{self.pg_db}"
 
